@@ -588,6 +588,11 @@ module Capybara::Poltergeist
         expect(@driver.status_code).to eq(200)
       end
 
+      it 'determines status code when the page has a few resources that gived mixed status codes' do
+        @session.visit('/poltergeist/with_different_resources_and_codes')
+        expect(@driver.status_code).to eq(200)
+      end
+
       it 'determines status code even after redirect' do
         @session.visit('/poltergeist/redirect')
         expect(@driver.status_code).to eq(200)

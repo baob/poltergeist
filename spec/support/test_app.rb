@@ -36,6 +36,16 @@ class TestApp
     halt 404
   end
 
+  get '/poltergeist/make302.png' do
+    sleep 0.04
+    halt 302
+  end
+
+  get '/poltergeist/make204.png' do
+    sleep 0.06
+    halt 204
+  end
+
   get '/poltergeist/status/:status' do
     status params['status']
     render_view 'with_different_resources'
